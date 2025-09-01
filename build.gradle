@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+    id 'net.serenity-bdd.serenity-gradle-plugin' version '4.2.34'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+serenity {
+    testRoot = "com.copilot.automation.stepdefinitions"
+    requirementsBaseDir = "src/test/resources/features"
+}
+
+dependencies {
+    // Serenity BDD dependencies
+    testImplementation 'org.junit.jupiter:junit-jupiter:4.13.2'
+    testImplementation 'net.serenity-bdd:serenity-core:4.2.34'
+    testImplementation 'net.serenity-bdd:serenity-junit:4.2.34'
+    testImplementation 'net.serenity-bdd:serenity-cucumber:4.2.34'
+    testImplementation 'net.serenity-bdd:serenity-reports:4.2.34'
+
+    // Playwright dependencies
+    testImplementation 'com.microsoft.playwright:playwright:1.39.0'
+}
+
+test {
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+    finalizedBy('aggregate')
+
+    // Install Playwright browsers during test setup
+    doFirst {
+        exec {
+            commandLine 'npx', 'playwright', 'install'
+        }
+    }
+}

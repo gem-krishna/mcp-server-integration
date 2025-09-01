@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/ARCHITECTURE.md">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/ARCHITECTURE.md" />
+              <option name="updatedContent" value="# Architecture Diagram&#10;&#10;```&#10;+-------------------+&#10;|   Feature Files   |&#10;| (Gherkin syntax)  |&#10;+-------------------+&#10;          |&#10;          v&#10;+-------------------+&#10;| Step Definitions  |&#10;| (Java classes)    |&#10;+-------------------+&#10;          |&#10;          v&#10;+-------------------+&#10;|   Test Runner     |&#10;| (JUnit + Cucumber |&#10;|  + Serenity)      |&#10;+-------------------+&#10;          |&#10;          v&#10;+-------------------+&#10;| Playwright        |&#10;| (Browser control) |&#10;+-------------------+&#10;          |&#10;          v&#10;+-------------------+&#10;| Serenity Reports  |&#10;| (HTML output)     |&#10;+-------------------+&#10;```&#10;&#10;- Feature files define test scenarios.&#10;- Step definitions implement scenario steps in Java using Playwright for browser automation.&#10;- The test runner executes tests and integrates with Serenity for reporting.&#10;- Serenity generates detailed test reports.&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/build.gradle">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/build.gradle" />
+              <option name="originalContent" value="plugins {&#10;    id 'java'&#10;    id 'net.serenity-bdd.serenity-gradle-plugin' version '4.2.34'&#10;}&#10;&#10;group = 'org.example'&#10;version = '1.0-SNAPSHOT'&#10;&#10;repositories {&#10;    mavenCentral()&#10;}&#10;serenity {&#10;    testRoot = &quot;com.copilot.automation.stepdefinitions&quot;&#10;    requirementsBaseDir = &quot;src/test/resources/features&quot;&#10;}&#10;dependencies {&#10;    // Explicitly declare JUnit and Cucumber test framework dependencies&#10;    testImplementation 'org.junit.jupiter:junit-jupiter:4.13.2'&#10;    testImplementation 'net.serenity-bdd:serenity-core:4.2.34'&#10;    testImplementation 'net.serenity-bdd:serenity-junit:4.2.34'&#10;    testImplementation 'net.serenity-bdd:serenity-cucumber:4.2.34'&#10;//    testImplementation 'io.cucumber:cucumber-junit-platform-engine:7.27.1'&#10;    testImplementation 'net.serenity-bdd:serenity-reports:4.2.34'&#10;}&#10;&#10;test {&#10;//    useJUnitPlatform()&#10;    testLogging {&#10;        events &quot;passed&quot;, &quot;skipped&quot;, &quot;failed&quot;&#10;    }&#10;    finalizedBy('aggregate')&#10;}" />
+              <option name="updatedContent" value="plugins {&#10;    id 'java'&#10;    id 'net.serenity-bdd.serenity-gradle-plugin' version '4.2.34'&#10;}&#10;&#10;group = 'org.example'&#10;version = '1.0-SNAPSHOT'&#10;&#10;repositories {&#10;    mavenCentral()&#10;}&#10;&#10;serenity {&#10;    testRoot = &quot;com.copilot.automation.stepdefinitions&quot;&#10;    requirementsBaseDir = &quot;src/test/resources/features&quot;&#10;}&#10;&#10;dependencies {&#10;    // Serenity BDD dependencies&#10;    testImplementation 'org.junit.jupiter:junit-jupiter:4.13.2'&#10;    testImplementation 'net.serenity-bdd:serenity-core:4.2.34'&#10;    testImplementation 'net.serenity-bdd:serenity-junit:4.2.34'&#10;    testImplementation 'net.serenity-bdd:serenity-cucumber:4.2.34'&#10;    testImplementation 'net.serenity-bdd:serenity-reports:4.2.34'&#10;    &#10;    // Playwright dependencies&#10;    testImplementation 'com.microsoft.playwright:playwright:1.39.0'&#10;}&#10;&#10;test {&#10;    testLogging {&#10;        events &quot;passed&quot;, &quot;skipped&quot;, &quot;failed&quot;&#10;    }&#10;    finalizedBy('aggregate')&#10;    &#10;    // Install Playwright browsers during test setup&#10;    doFirst {&#10;        exec {&#10;            commandLine 'npx', 'playwright', 'install'&#10;        }&#10;    }&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/org/example/Main.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/src/main/java/org/example/Main.java" />
+              <option name="originalContent" value="package org.example;&#10;&#10;//TIP To &lt;b&gt;Run&lt;/b&gt; code, press &lt;shortcut actionId=&quot;Run&quot;/&gt; or&#10;// click the &lt;icon src=&quot;AllIcons.Actions.Execute&quot;/&gt; icon in the gutter.&#10;public class Main {&#10;    public static void main(String[] args) {&#10;        //TIP Press &lt;shortcut actionId=&quot;ShowIntentionActions&quot;/&gt; with your caret at the highlighted text&#10;        // to see how IntelliJ IDEA suggests fixing it.&#10;        System.out.printf(&quot;Hello and welcome!&quot;);&#10;&#10;        for (int i = 1; i &lt;= 5; i++) {&#10;            //TIP Press &lt;shortcut actionId=&quot;Debug&quot;/&gt; to start debugging your code. We have set one &lt;icon src=&quot;AllIcons.Debugger.Db_set_breakpoint&quot;/&gt; breakpoint&#10;            // for you, but you can always add more by pressing &lt;shortcut actionId=&quot;ToggleLineBreakpoint&quot;/&gt;.&#10;            System.out.println(&quot;i = &quot; + i);&#10;        }&#10;    }&#10;}" />
+              <option name="updatedContent" value="package org.example;&#10;&#10;/**&#10; * Main class to demonstrate basic Java application structure and output.&#10; */&#10;public class Main {&#10;    /**&#10;     * Main method. Entry point of the application.&#10;     *&#10;     * @param args command-line arguments&#10;     */&#10;    public static void main(String[] args) {&#10;        //TIP Press &lt;shortcut actionId=&quot;ShowIntentionActions&quot;/&gt; with your caret at the highlighted text&#10;        // to see how IntelliJ IDEA suggests fixing it.&#10;        System.out.printf(&quot;Hello and welcome!&quot;);&#10;&#10;        for (int i = 1; i &lt;= 5; i++) {&#10;            //TIP Press &lt;shortcut actionId=&quot;Debug&quot;/&gt; to start debugging your code. We have set one &lt;icon src=&quot;AllIcons.Debugger.Db_set_breakpoint&quot;/&gt; breakpoint&#10;            // for you, but you can always add more by pressing &lt;shortcut actionId=&quot;ToggleLineBreakpoint&quot;/&gt;.&#10;            System.out.println(&quot;i = &quot; + i);&#10;        }&#10;    }&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/test/java/com/copilot/automation/config/PlaywrightConfig.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/src/test/java/com/copilot/automation/config/PlaywrightConfig.java" />
+              <option name="updatedContent" value="package com.copilot.automation.config;&#10;&#10;import com.microsoft.playwright.Browser;&#10;import com.microsoft.playwright.BrowserType;&#10;import com.microsoft.playwright.Page;&#10;import com.microsoft.playwright.Playwright;&#10;import net.serenitybdd.core.environment.EnvironmentSpecificConfiguration;&#10;import net.thucydides.core.util.EnvironmentVariables;&#10;import net.thucydides.core.util.SystemEnvironmentVariables;&#10;&#10;public class PlaywrightConfig {&#10;    private static final EnvironmentVariables environmentVariables = SystemEnvironmentVariables.createEnvironmentVariables();&#10;    private static Playwright playwright;&#10;    private static Browser browser;&#10;    private static Page page;&#10;&#10;    public static Page getPage() {&#10;        if (page == null) {&#10;            initPlaywright();&#10;        }&#10;        return page;&#10;    }&#10;&#10;    private static void initPlaywright() {&#10;        playwright = Playwright.create();&#10;        String browserType = EnvironmentSpecificConfiguration.from(environmentVariables)&#10;                .getProperty(&quot;browser.type&quot;, &quot;chrome&quot;);&#10;        &#10;        BrowserType.LaunchOptions launchOptions = new BrowserType.LaunchOptions()&#10;                .setHeadless(Boolean.parseBoolean(&#10;                    EnvironmentSpecificConfiguration.from(environmentVariables)&#10;                        .getProperty(&quot;headless.mode&quot;, &quot;false&quot;)));&#10;&#10;        browser = switch (browserType.toLowerCase()) {&#10;            case &quot;firefox&quot; -&gt; playwright.firefox().launch(launchOptions);&#10;            case &quot;webkit&quot; -&gt; playwright.webkit().launch(launchOptions);&#10;            default -&gt; playwright.chromium().launch(launchOptions);&#10;        };&#10;&#10;        page = browser.newPage();&#10;    }&#10;&#10;    public static void closePlaywright() {&#10;        if (page != null) {&#10;            page.close();&#10;            page = null;&#10;        }&#10;        if (browser != null) {&#10;            browser.close();&#10;            browser = null;&#10;        }&#10;        if (playwright != null) {&#10;            playwright.close();&#10;            playwright = null;&#10;        }&#10;    }&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/test/java/com/copilot/automation/runners/TestRunner.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/src/test/java/com/copilot/automation/runners/TestRunner.java" />
+              <option name="updatedContent" value="package com.copilot.automation.runners;&#10;&#10;import io.cucumber.junit.CucumberOptions;&#10;import net.serenitybdd.cucumber.CucumberWithSerenity;&#10;import org.junit.runner.RunWith;&#10;&#10;@RunWith(CucumberWithSerenity.class)&#10;@CucumberOptions(&#10;    features = &quot;src/test/resources/features&quot;,&#10;    glue = &quot;com.copilot.automation.stepdefinitions&quot;,&#10;    plugin = {&quot;pretty&quot;}&#10;)&#10;public class TestRunner {&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/test/java/com/copilot/automation/stepdefinitions/LoginSteps.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/src/test/java/com/copilot/automation/stepdefinitions/LoginSteps.java" />
+              <option name="updatedContent" value="package com.copilot.automation.stepdefinitions;&#10;&#10;import com.copilot.automation.config.PlaywrightConfig;&#10;import com.microsoft.playwright.Page;&#10;import io.cucumber.java.After;&#10;import io.cucumber.java.en.Given;&#10;import io.cucumber.java.en.Then;&#10;import io.cucumber.java.en.When;&#10;import net.serenitybdd.annotations.Step;&#10;&#10;public class LoginSteps {&#10;    private Page page;&#10;&#10;    @Given(&quot;I am on the login page&quot;)&#10;    @Step(&quot;Navigate to login page&quot;)&#10;    public void navigateToLoginPage() {&#10;        page = PlaywrightConfig.getPage();&#10;        page.navigate(&quot;YOUR_APPLICATION_URL&quot;);&#10;    }&#10;&#10;    @When(&quot;I enter username {string} and password {string}&quot;)&#10;    @Step(&quot;Enter login credentials&quot;)&#10;    public void enterCredentials(String username, String password) {&#10;        page.fill(&quot;[data-test=username]&quot;, username);&#10;        page.fill(&quot;[data-test=password]&quot;, password);&#10;    }&#10;&#10;    @When(&quot;I click the login button&quot;)&#10;    @Step(&quot;Click login button&quot;)&#10;    public void clickLoginButton() {&#10;        page.click(&quot;[data-test=login-button]&quot;);&#10;    }&#10;&#10;    @Then(&quot;I should see the dashboard&quot;)&#10;    @Step(&quot;Verify successful login&quot;)&#10;    public void verifyDashboard() {&#10;        page.waitForSelector(&quot;[data-test=dashboard]&quot;, &#10;            new Page.WaitForSelectorOptions().setState(&quot;visible&quot;));&#10;    }&#10;&#10;    @After&#10;    public void tearDown() {&#10;        PlaywrightConfig.closePlaywright();&#10;    }&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/test/java/runners/SerenityCucumberRunner.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/src/test/java/runners/SerenityCucumberRunner.java" />
+              <option name="originalContent" value="package runners;&#10;&#10;import io.cucumber.junit.CucumberOptions;&#10;import net.serenitybdd.junit.runners.SerenityRunner;&#10;import org.junit.runner.RunWith;&#10;&#10;// Example configuration:&#10;@RunWith(SerenityRunner.class)&#10;@CucumberOptions(&#10;        features = &quot;src/test/resources/features&quot;,&#10;        glue = &quot;stepdefinitions&quot;,&#10;        plugin = {&quot;pretty&quot;, &quot;html:target/cucumber-reports&quot;}&#10;)&#10;public class SerenityCucumberRunner {&#10;}&#10;" />
+              <option name="updatedContent" value="package runners;&#10;&#10;import io.cucumber.junit.Cucumber;&#10;import io.cucumber.junit.CucumberOptions;&#10;import org.junit.runner.RunWith;&#10;&#10;@RunWith(Cucumber.class)&#10;@CucumberOptions(&#10;        features = &quot;src/test/resources/features&quot;,&#10;        glue = &quot;stepdefinitions&quot;,&#10;        plugin = {&quot;pretty&quot;, &quot;html:target/cucumber-reports&quot;}&#10;)&#10;public class SerenityCucumberRunner {&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/test/resources/serenity.properties">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/src/test/resources/serenity.properties" />
+              <option name="updatedContent" value="serenity.project.name=Serenity Playwright Test Automation&#10;serenity.test.root=com.copilot.automation.stepdefinitions&#10;serenity.browser.maximized=true&#10;&#10;# Playwright specific configurations&#10;browser.type=chrome&#10;headless.mode=false&#10;&#10;# Take screenshots for each step&#10;serenity.take.screenshots=FOR_EACH_ACTION&#10;&#10;# Report configurations&#10;serenity.reports.show.step.details=true&#10;serenity.console.colors=true" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
