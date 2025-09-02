@@ -4,6 +4,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
 
 
 /**
@@ -18,6 +19,8 @@ public class loginStepDefinitions {
     @Given("user is on login page")
     public void user_is_on_login_page() {
         // Code to navigate to login page
+        WebDriver driver = null;
+        driver.get("http://example.com/login");
     }
 
     /**
